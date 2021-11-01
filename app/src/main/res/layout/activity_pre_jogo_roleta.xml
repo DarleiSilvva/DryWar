@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.55" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cenario_caatingueiro" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView20"
+            app:srcCompat="@drawable/balao_preto_transparente_game" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/n20"
+            android:paddingTop="@dimen/n20"
+            android:paddingEnd="@dimen/n20"
+            android:paddingBottom="@dimen/n5"
+            android:scaleType="fitEnd"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView20"
+            app:layout_constraintEnd_toStartOf="@id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/imageView20"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_cangaceiro" />
+
+        <LinearLayout
+            android:id="@+id/linearBalao"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/n10"
+            android:layout_marginEnd="@dimen/n10"
+            android:layout_marginBottom="@dimen/n5"
+            android:background="@drawable/ic_balao_quadrado"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/n30"
+            android:paddingTop="@dimen/n10"
+            android:paddingEnd="@dimen/n10"
+            android:paddingBottom="@dimen/n10"
+            app:layout_constraintBottom_toTopOf="@id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/imageView20">
+
+            <TextView
+                android:id="@+id/txtBalao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/eldes_cordel_demo"
+                android:text="@string/mensagem_do_cangaceiro"
+                android:textColor="@android:color/background_dark"
+                android:textSize="@dimen/ns18" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/n80"
+            android:layout_marginTop="@dimen/n5"
+            android:background="@drawable/pergaminho_monster"
+            android:fontFamily="@font/xilosa"
+            android:gravity="center"
+            android:paddingStart="@dimen/n10"
+            android:paddingTop="@dimen/n10"
+            android:paddingEnd="@dimen/n10"
+            android:paddingBottom="@dimen/n10"
+            android:text="Monstro"
+            android:textColor="@color/preto"
+            android:textSize="@dimen/ns25"
+            app:layout_constraintEnd_toEndOf="@id/imageViewObjeto"
+            app:layout_constraintStart_toStartOf="@id/imageViewObjeto"
+            app:layout_constraintTop_toBottomOf="@id/imageViewObjeto" />
+
+        <ImageView
+            android:id="@+id/somImageView"
+            android:layout_width="@dimen/n70"
+            android:layout_height="@dimen/n70"
+            android:layout_marginTop="@dimen/n35"
+            android:layout_marginEnd="@dimen/n5"
+            android:layout_marginBottom="@dimen/n5"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:srcCompat="@drawable/ic_baseline_settings_24" />
+
+        <ImageView
+            android:id="@+id/imageViewObjeto"
+            android:layout_width="@dimen/n280"
+            android:layout_height="@dimen/n280"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearBalao"
+            app:srcCompat="@drawable/roulette_monster" />
+
+        <ImageView
+            android:id="@+id/imageViewPointer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewObjeto"
+            app:layout_constraintEnd_toEndOf="@id/imageViewObjeto"
+            app:layout_constraintStart_toStartOf="@id/imageViewObjeto"
+            app:layout_constraintTop_toTopOf="@id/imageViewObjeto"
+            app:srcCompat="@drawable/pointer_monster" />
+
+        <ImageView
+            android:id="@+id/imageViewObjeto2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_roulette_monster_limpa"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewObjeto"
+            app:layout_constraintEnd_toEndOf="@id/imageViewObjeto"
+            app:layout_constraintStart_toStartOf="@id/imageViewObjeto"
+            app:layout_constraintTop_toTopOf="@id/imageViewObjeto" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

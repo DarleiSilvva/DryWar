@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rel_modelo_inicio"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/n2">
+
+    <TextView
+        android:id="@+id/textPontuacao"
+        android:layout_width="@dimen/n100"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@id/textClassificacao"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/balao_preto"
+        android:fontFamily="@font/coiny"
+        android:gravity="center"
+        android:text="17"
+        android:textColor="@color/preto"
+        android:textSize="@dimen/n14"
+        app:layout_constraintBottom_toBottomOf="@id/imageUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textUsuario"
+        app:layout_constraintTop_toTopOf="@id/imageUsuario" />
+
+    <TextView
+        android:id="@+id/textUsuario"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignTop="@id/textClassificacao"
+        android:layout_alignBottom="@id/textClassificacao"
+        android:layout_toStartOf="@id/textPontuacao"
+        android:layout_toEndOf="@id/imageUsuario"
+        android:background="@drawable/balao_preto"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/n15"
+        android:text="TextView"
+        android:textColor="@color/preto"
+        android:textSize="@dimen/n14"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/imageUsuario"
+        app:layout_constraintEnd_toStartOf="@id/textPontuacao"
+        app:layout_constraintStart_toEndOf="@id/imageUsuario"
+        app:layout_constraintTop_toTopOf="@id/imageUsuario" />
+
+    <ImageView
+        android:id="@+id/imageUsuario"
+        android:layout_width="@dimen/n35"
+        android:layout_height="@dimen/n35"
+        android:layout_alignTop="@id/textClassificacao"
+        android:layout_alignBottom="@id/textClassificacao"
+        android:layout_toEndOf="@id/textClassificacao"
+        android:background="@drawable/balao_preto"
+        android:padding="@dimen/n5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textUsuario"
+        app:layout_constraintStart_toEndOf="@id/textClassificacao"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textClassificacao"
+        android:layout_width="@dimen/n35"
+        android:layout_height="@dimen/n35"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/balao_preto"
+        android:fontFamily="@font/coiny"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/preto"
+        android:textSize="@dimen/n14"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/imageUsuario"
+        app:layout_constraintEnd_toStartOf="@id/imageUsuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageUsuario" />
+
+</RelativeLayout>

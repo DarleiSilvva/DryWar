@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/branco">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/cenario_caatinga" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/ic_cangaceiro" />
+
+    <RelativeLayout
+        android:id="@+id/relativeCombo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/constraint">
+
+        <TextView
+            android:id="@+id/textClassificacaoTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/n5"
+            android:background="@drawable/a_a_template_search"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:paddingStart="@dimen/n15"
+            android:paddingTop="@dimen/n10"
+            android:paddingEnd="@dimen/n10"
+            android:paddingBottom="@dimen/n10"
+            android:text="@string/classifica_o_desse_jogo"
+            android:textColor="@color/preto"
+            android:textSize="@dimen/ns28" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rel_modelo_inicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textClassificacaoTitulo"
+            android:layout_marginStart="@dimen/n2"
+            android:layout_marginTop="@dimen/n2"
+            android:layout_marginEnd="@dimen/n2"
+            android:layout_marginBottom="@dimen/n2">
+
+            <TextView
+                android:id="@+id/textPontuacao"
+                android:layout_width="@dimen/n100"
+                android:layout_height="0dp"
+                android:background="@drawable/balao_preto_green"
+                android:gravity="center"
+                android:text="@string/pontos"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/n14"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imageUsuario"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textUsuario"
+                app:layout_constraintTop_toTopOf="@id/imageUsuario" />
+
+            <TextView
+                android:id="@+id/textUsuario"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/balao_preto_green"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="@string/usuarios"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/n14"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imageUsuario"
+                app:layout_constraintEnd_toStartOf="@id/textPontuacao"
+                app:layout_constraintStart_toEndOf="@id/imageUsuario"
+                app:layout_constraintTop_toTopOf="@id/imageUsuario" />
+
+            <ImageView
+                android:id="@+id/imageUsuario"
+                android:layout_width="@dimen/n35"
+                android:layout_height="@dimen/n35"
+                android:background="@drawable/balao_preto_green"
+                android:padding="@dimen/n5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textClassificacao"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textClassificacao"
+                android:layout_width="@dimen/n35"
+                android:layout_height="@dimen/n35"
+                android:background="@drawable/balao_preto_green"
+                android:gravity="center"
+                android:text="@string/pt"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/n14"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imageUsuario"
+                app:layout_constraintEnd_toStartOf="@id/imageUsuario"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imageUsuario" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/ee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/linear_modelo_inicioRecord"
+            android:layout_below="@id/rel_modelo_inicio"
+            android:layout_marginTop="@dimen/n5"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/r"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/myRecycler"
+                    class="android.support.v7.widget.RecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/mSearch"
+                    android:layout_marginTop="@dimen/n5"
+                    tools:listitem="@layout/modelo_classificacao" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/linear_modelo_inicioRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/n10"
+            android:layout_marginBottom="@dimen/n10"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/a_a_template_search"
+                android:fontFamily="@font/bangers"
+                android:gravity="center"
+                android:text="@string/seu_recorde_em_posi_o"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/ns22" />
+
+            <RelativeLayout
+                android:id="@+id/rel_modelo_inicioRecord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/n2"
+                android:layout_marginTop="@dimen/n2"
+                android:layout_marginEnd="@dimen/n2"
+                android:layout_marginBottom="@dimen/n2">
+
+                <TextView
+                    android:id="@+id/textPontuacaoRecord"
+                    android:layout_width="@dimen/n100"
+                    android:layout_height="0dp"
+                    android:layout_alignBottom="@id/textClassificacaoRecord"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/balao_preto"
+                    android:fontFamily="@font/coiny"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/preto"
+                    android:textSize="@dimen/n14"
+                    app:layout_constraintBottom_toBottomOf="@id/imageUsuarioRecord"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/textUsuarioRecord"
+                    app:layout_constraintTop_toTopOf="@id/imageUsuarioRecord" />
+
+                <TextView
+                    android:id="@+id/textUsuarioRecord"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignTop="@id/textClassificacaoRecord"
+                    android:layout_alignBottom="@id/textClassificacaoRecord"
+                    android:layout_toStartOf="@id/textPontuacaoRecord"
+                    android:layout_toEndOf="@id/imageUsuarioRecord"
+                    android:background="@drawable/balao_preto"
+                    android:gravity="center_vertical"
+                    android:paddingStart="@dimen/n15"
+                    android:text="TextView"
+                    android:textColor="@color/preto"
+                    android:textSize="@dimen/n14"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/imageUsuarioRecord"
+                    app:layout_constraintEnd_toStartOf="@id/textPontuacaoRecord"
+                    app:layout_constraintStart_toEndOf="@id/imageUsuarioRecord"
+                    app:layout_constraintTop_toTopOf="@id/imageUsuarioRecord" />
+
+                <ImageView
+                    android:id="@+id/imageUsuarioRecord"
+                    android:layout_width="@dimen/n35"
+                    android:layout_height="@dimen/n35"
+                    android:layout_alignTop="@id/textClassificacaoRecord"
+                    android:layout_alignBottom="@id/textClassificacaoRecord"
+                    android:layout_toEndOf="@id/textClassificacaoRecord"
+                    android:background="@drawable/balao_preto"
+                    android:padding="@dimen/n5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textUsuarioRecord"
+                    app:layout_constraintStart_toEndOf="@id/textClassificacaoRecord"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/textClassificacaoRecord"
+                    android:layout_width="@dimen/n35"
+                    android:layout_height="@dimen/n35"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/balao_preto"
+                    android:fontFamily="@font/coiny"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/preto"
+                    android:textSize="@dimen/n14"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/imageUsuarioRecord"
+                    app:layout_constraintEnd_toStartOf="@id/imageUsuarioRecord"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/imageUsuarioRecord" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/n10"
+                android:background="@drawable/a_a_template_search"
+                android:fontFamily="@font/bangers"
+                android:gravity="center"
+                android:text="@string/seu_recorde_em_pontos"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/ns22" />
+
+            <TextView
+                android:id="@+id/textPontuacaoRecordFora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/textClassificacaoRecord"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/n20"
+                android:layout_marginTop="@dimen/n2"
+                android:layout_marginEnd="@dimen/n20"
+                android:background="@drawable/balao_preto"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/preto"
+                android:textSize="@dimen/n15"
+                app:layout_constraintBottom_toBottomOf="@id/imageUsuarioRecord"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textUsuarioRecord"
+                app:layout_constraintTop_toTopOf="@id/imageUsuarioRecord" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/n10">
+
+        <Button
+            android:id="@+id/sair"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/n2"
+            android:layout_marginEnd="@dimen/n5"
+            android:background="@drawable/balao_preto_green"
+            android:gravity="center"
+            android:onClick="sair"
+            android:text="@string/sair"
+            android:textColor="@color/preto"
+            android:textSize="@dimen/n20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/recomecar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/recomecar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/n5"
+            android:layout_marginEnd="@dimen/n2"
+            android:background="@drawable/balao_preto_green"
+            android:gravity="center"
+            android:onClick="recomecar"
+            android:text="@string/recomecar"
+            android:textColor="@color/preto"
+            android:textSize="@dimen/n20"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/sair"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

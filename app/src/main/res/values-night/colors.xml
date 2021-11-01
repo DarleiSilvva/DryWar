@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d7b29c</color>
+    <color name="colorPrimaryDark">#a07254</color>
+    <color name="colorAccent">#d7b29c</color>
+    <color name="green_ligh">#cbf6de</color>
+    <color name="fundao">#616161</color>
+    <color name="hint">#75644A</color>
+    <color name="text">#673AB7</color>
+    <color name="branco">#FFFFFF</color>
+    <color name="preto">#000000</color>
+    <color name="colorerrado">#F44336</color>
+    <color name="vermelho">#E60014</color>
+    <color name="laranja">#FF7814</color>
+    <color name="verde">#007814</color>
+    <color name="amarelo">#FFF014</color>
+    <color name="azul">#145AF0</color>
+    <color name="rosa">#F05078</color>
+    <color name="roxo">#3C1478</color>
+    <color name="trans">#3AFFFFFF</color>
+    <color name="fundo">#868781</color>
+    <color name="semcor">#00000000</color>
+    <color name="vermelho_escuro">#53230e</color>
+
+    <color name="marrom_claro">#AE8171</color>
+    <color name="papel">#f4e8b5</color>
+    <color name="papels">#5b4820</color>
+    <color name="geologia_clara">#e5c5e7</color>
+    <color name="clima_p">#ccb200</color>
+    <color name="geologia_p">#ebbeee</color>
+    <color name="geomorfologia_p">#8c510d</color>
+    <color name="hidrografia_p">#2c89c6</color>
+    <color name="vegetacao_p">#254f00</color>
+    <color name="solo_p">#ea8a6d</color>
+    <color name="corSoloVerde">#849676</color>
+    <color name="zero">#03EA8A6D</color>
+    <color name="corda">#decd87</color>
+    <color name="corParede">#768796</color>
+    <color name="corUniverso">#1a2432</color>
+    <color name="corMapa">#eccfa3</color>
+    <color name="corMapaFundo">#4DECCFA3</color>
+    <color name="bottom_preto">#65197D40</color>
+
+</resources>
