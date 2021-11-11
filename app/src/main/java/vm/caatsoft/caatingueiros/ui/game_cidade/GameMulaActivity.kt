@@ -9,10 +9,14 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import vm.caatsoft.caatingueiros.mecanica_de_jogo.JoyStickClass
 import vm.caatsoft.caatingueiros.R
 import vm.caatsoft.caatingueiros.databinding.*
@@ -100,6 +104,8 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
     var velocidade_inimigoY = 0
     var velocidade_cenarioY = 0f
     var velocidade_cenarioX = 0f
+
+    var pontosValem = false
 
     var fundoCidadeY = 0f
     var fundoCidadeX = 0f
@@ -358,11 +364,53 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
     private var y2 = 0f
     private lateinit var binding: ActivityGameMulaBinding
 
+    var caminhoA = false
+    var caminhoB = false
+    var caminhoC = false
+    var caminhoD = false
+    var caminhoE = false
+    var caminhoF = false
+    var caminhoG = false
+    var caminhoH = false
+    var caminhoI = false
+    var caminhoJ = false
+    var caminhoK = false
+    var caminhoL = false
+    var caminhoM = false
+    var caminhoN = false
+
+    var caminhoMosquitoA = false
+    var caminhoMosquitoB = false
+    var caminhoMosquitoC = false
+    var caminhoMosquitoD = false
+    var caminhoMosquitoE = false
+    var caminhoMosquitoF = false
+    var caminhoMosquitoG = false
+    var caminhoMosquitoH = false
+    var caminhoMosquitoI = false
+    var caminhoMosquitoJ = false
+    var caminhoMosquitoK = false
+    var caminhoMosquitoL = false
+    var caminhoMosquitoM = false
+    var caminhoMosquitoN = false
+    var tiroParou = false
+
+    private var tiroInimigoX = 0f
+    private var tiroInimigoY = 0f
+
+    private var tiroInimigoxX = 0f
+    private var tiroInimigoyY = 0f
+
+    private var tiroInimigo = 0
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGameMulaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        MobileAds.initialize(this) {}
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
         tocarSomMedia(2, true, this)
 
         buracoX = florestaEsquerdaX - binding.inimigoGame.height
@@ -1786,7 +1834,9 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         praca1()
         praca2()
         prefeitura1()
-        desafios()
+        if (pontosValem){
+            desafios()
+        }
         feira1()
         feira2()
         atualizacaoFundoQuadriculado()
@@ -5539,6 +5589,7 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
             monstroY = heightCidade(binding.monstro, 4f) + monstroyY
             monstroX = widthCidade(binding.monstro, 1f) + monstroxX
             monstro = 1
+            caminhoC = true
         }
         /**C**/
 
@@ -5553,7 +5604,6 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         if (monstro == 2) {
             monstroyY += velocidadeMonstroVirose
             monstroxX -= 0
-
 
         }
 
@@ -5571,69 +5621,6 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
 
         }
 
-        /**C**/
-
-        if (monstro == 12) {
-            monstroyY -= velocidadeMonstroVirose
-            monstroxX -= 0
-
-        }
-
-        /**C**/
-
-        if (monstro == 13) {
-            monstroyY -= velocidadeMonstroVirose
-            monstroxX -= 0
-
-        }
-
-
-        /**B**/
-
-        if (monstro == 22) {
-            monstroyY += velocidadeMonstroVirose
-            monstroxX -= 0
-
-
-        }
-
-        /**B**/
-
-        if (monstro == 23) {
-            monstroyY += velocidadeMonstroVirose
-            monstroxX -= 0
-
-
-        }
-
-
-        /**E**/
-        if (monstro == 32) {
-            monstroyY += 0
-            monstroxX -= velocidadeMonstroVirose
-
-        }
-
-        /**E**/
-        if (monstro == 33) {
-            monstroyY += 0
-            monstroxX -= velocidadeMonstroVirose
-
-        }
-
-        /**D**/
-        if (monstro == 42) {
-            monstroyY += 0
-            monstroxX += velocidadeMonstroVirose
-
-        }
-
-        /**D**/
-        if (monstro == 43) {
-            monstroyY += 0
-            monstroxX += velocidadeMonstroVirose
-
-        }
 
         monstroY = heightCidade(binding.monstro, 4f) + monstroyY
         monstroX = widthCidade(binding.monstro, 1f) + monstroxX
@@ -5641,31 +5628,278 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         binding.monstro.x = monstroX
         binding.monstro.y = monstroY
 
-        if (monstroY < heightCidade(binding.monstro, 9.65f) && monstro == 1){
-            monstro = 4
-        } else if (monstroX > widthCidade(binding.monstro, 6.5f) && monstro == 4){
-            monstro = 2
-        } else if (monstroY > heightCidade(binding.monstro, 6.5f) && monstro == 2){
-            monstro = 42
-        }  else if (monstroX > widthCidade(binding.monstro, 11.25f) && monstro == 42){
-            monstro = 12
-        } else if (monstroY < heightCidade(binding.monstro, 9.65f) && monstro == 12){
-            monstro = 43
-        } else if (monstroX > widthCidade(binding.monstro, 16.25f) && monstro == 43){
-            monstro = 22
-        } else if (monstroY > heightCidade(binding.monstro, 0.25f) && monstro == 22){
-            monstro = 3
-        }  else if (monstroX < widthCidade(binding.monstro, 11.25f) && monstro == 3){
-            monstro = 13
-        } else if (monstroY < heightCidade(binding.monstro, 6.5f) && monstro == 13){
-            monstro = 32
-        }  else if (monstroX < widthCidade(binding.monstro, 6.5f) && monstro == 32){
-            monstro = 23
-        } else if (monstroY > heightCidade(binding.monstro, 0.25f) && monstro == 23){
-            monstro = 33
-        }  else if (monstroX < widthCidade(binding.monstro, 0.5f) && monstro == 33){
-            monstro = 1
+        proibidoPerder = true
+
+        if (pontoA(monstro, caminhoA, monstroX, monstroY, binding.monstro)){
+            Log.d("pontoA", "true")
+            val list = listOf(1, 4)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoB = true
+                    Log.d("pontoA", "caminhoB")
+                }
+                4 -> {
+                    monstro = 4
+                    caminhoG = true
+                    Log.d("pontoA", "caminhoG")
+                }
+            }
+            caminhoA = false
+
+        } else if (pontoB(monstro, caminhoB, monstroX, monstroY, binding.monstro)){
+            Log.d("pontoB", "true")
+            val list = listOf(1, 2, 4)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoC = true
+                    Log.d("pontoB", "caminhoC")
+                }
+                2 -> {
+                    monstro = 2
+                    caminhoA = true
+                    Log.d("pontoB", "caminhoA")
+                }
+                4 -> {
+                    monstro = 4
+                    caminhoF = true
+                    Log.d("pontoB", "caminhoF")
+                }
+            }
+            caminhoB = false
+
+        } else if (pontoC(monstro, caminhoC, monstroX, monstroY, binding.monstro)){
+            Log.d("pontoC", "true")
+            val list = listOf(2, 4)
+            when (list.random()){
+                2 -> {
+                    monstro = 2
+                    caminhoB = true
+                    Log.d("pontoC", "caminhoB")
+                }
+                4 -> {
+                    monstro = 4
+                    caminhoD = true
+                    Log.d("pontoC", "caminhoD")
+                }
+            }
+            caminhoC = false
+
+        } else if (pontoD(monstro, caminhoD,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoD", "true")
+            val list = listOf(2, 3)
+            when (list.random()){
+                2 -> {
+                    monstro = 2
+                    caminhoE = true
+                    Log.d("pontoD", "caminhoE")
+                }
+                3 -> {
+                    monstro = 3
+                    caminhoC = true
+                    Log.d("pontoD", "caminhoC")
+                }
+            }
+            caminhoD = false
+
+        }else if (pontoE(monstro, caminhoE,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoE", "true")
+            val list = listOf(1, 2, 4)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoD = true
+                    Log.d("pontoE", "caminhoD")
+                }
+                2 -> {
+                    monstro = 2
+                    caminhoF = true
+                    Log.d("pontoE", "caminhoF")
+                }
+                4 -> {
+                    monstro = 4
+                    caminhoH = true
+                    Log.d("pontoE", "caminhoH")
+                }
+            }
+            caminhoE = false
+
+        }else if (pontoF(monstro, caminhoF,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoF", "true")
+            val list = listOf(1, 2, 3)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoE = true
+                    Log.d("pontoF", "caminhoE")
+                }
+                2 -> {
+                    monstro = 2
+                    caminhoG = true
+                    Log.d("pontoF", "caminhoG")
+                }
+                3 -> {
+                    monstro = 3
+                    caminhoB = true
+                    Log.d("pontoF", "caminhoB")
+                }
+            }
+            caminhoF = false
+
+        }else if (pontoG(monstro, caminhoG,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoG", "true")
+            val list = listOf(1, 3)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoF = true
+                    Log.d("pontoG", "caminhoF")
+                }
+                3 -> {
+                    monstro = 3
+                    caminhoA = true
+                    Log.d("pontoG", "caminhoA")
+                }
+            }
+            caminhoG = false
+
+        }else if (pontoH(monstro, caminhoH,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoH", "true")
+            val list = listOf(1, 2, 3)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoI = true
+                    Log.d("pontoH", "caminhoI")
+                }
+                2 -> {
+                    monstro = 2
+                    caminhoN = true
+                    Log.d("pontoH", "caminhoN")
+                }
+                3 -> {
+                    monstro = 3
+                    caminhoE = true
+                    Log.d("pontoH", "caminhoE")
+                }
+            }
+            caminhoH = false
+
+        }else if (pontoI(monstro, caminhoI,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoI", "true")
+            val list = listOf(2, 4)
+            when (list.random()){
+                2 -> {
+                    monstro = 2
+                    caminhoH = true
+                    Log.d("pontoI", "caminhoH")
+                }
+                4 -> {
+                    monstro = 4
+                    caminhoJ = true
+                    Log.d("pontoI", "caminhoJ")
+                }
+            }
+            caminhoI = false
+
+        }else if (pontoJ(monstro, caminhoJ,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoJ", "true")
+            val list = listOf(2, 3)
+            when (list.random()){
+                2 -> {
+                    monstro = 2
+                    caminhoK = true
+                    Log.d("pontoJ", "caminhoK")
+                }
+                3 -> {
+                    monstro = 3
+                    caminhoI = true
+                    Log.d("pontoJ", "caminhoI")
+                }
+            }
+            caminhoJ = false
+
+        }else if (pontoK(monstro, caminhoK,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoK", "true")
+            val list = listOf(1, 2, 3)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoJ = true
+                    Log.d("pontoK", "caminhoJ")
+                }
+                2 -> {
+                    monstro = 2
+                    caminhoL = true
+                    Log.d("pontoK", "caminhoL")
+                }
+                3 -> {
+                    monstro = 3
+                    caminhoN = true
+                    Log.d("pontoK", "caminhoN")
+                }
+            }
+            caminhoK = false
+
+        }else if (pontoL(monstro, caminhoL,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoL", "true")
+            val list = listOf(1, 3)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoK = true
+                    Log.d("pontoL", "caminhoK")
+                }
+                3 -> {
+                    monstro = 3
+                    caminhoM = true
+                    Log.d("pontoL", "caminhoM")
+                }
+            }
+            caminhoL = false
+
+        }else if (pontoM(monstro, caminhoM,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoM", "true")
+            val list = listOf(1, 4)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoN = true
+                    Log.d("pontoM", "caminhoN")
+                }
+                4 -> {
+                    monstro = 4
+                    caminhoL = true
+                    Log.d("pontoM", "caminhoL")
+                }
+            }
+            caminhoM = false
+
+        }else if (pontoN(monstro, caminhoN,monstroX, monstroY, binding.monstro)){
+            Log.d("pontoN", "true")
+            val list = listOf(1, 2, 4)
+            when (list.random()){
+                1 -> {
+                    monstro = 1
+                    caminhoH = true
+                    Log.d("pontoN", "caminhoH")
+                }
+                2 -> {
+                    monstro = 2
+                    caminhoM = true
+                    Log.d("pontoN", "caminhoM")
+                }
+                4 -> {
+                    monstro = 4
+                    caminhoK = true
+                    Log.d("pontoN", "caminhoK")
+                }
+            }
+            caminhoN = false
+
         }
+
 
         if (colisorJogadorParar(monstroX, monstroY, binding.monstro)) {
             binding.imageViewArpg.setImageResource(R.drawable.ic_cangaceiro)
@@ -5676,11 +5910,18 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
 
     fun mosquito1(){
         if (mosquito == 0){
-            mosquitoY = heightCidade(binding.mosquito, 4f) + mosquitoyY
+            mosquitoY = heightCidade(binding.mosquito, 2f) + mosquitoyY
             mosquitoX = widthCidade(binding.mosquito, 11.25f) + mosquitoxX
-            mosquito = 2
+            binding.tiroInimigo.visibility = View.VISIBLE
+            tiroInimigoX = mosquitoX
+            tiroInimigoY = mosquitoY
+            caminhoMosquitoN = true
+
+            mosquito = 1
+            tiroInimigo = mosquito
         }
         /**C**/
+        //tiroInimigo = mosquito
 
         if (mosquito == 1) {
             mosquitoyY -= velocidadeMonstroMosquito
@@ -5692,7 +5933,6 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         if (mosquito == 2) {
             mosquitoyY += velocidadeMonstroMosquito
             mosquitoxX -= 0
-
         }
 
         /**E**/
@@ -5706,113 +5946,357 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         if (mosquito == 4) {
             mosquitoyY += 0
             mosquitoxX += velocidadeMonstroMosquito
-
         }
 
-        /**C**/
+        if (tiroInimigo == 1) {
+            tiroInimigoyY -= velocidadeMonstroMosquito*2
+            tiroInimigoxX -= 0
 
-        if (mosquito == 12) {
-            mosquitoyY -= velocidadeMonstroMosquito
-            mosquitoxX -= 0
-
-        }
-
-        /**C**/
-
-        if (mosquito == 13) {
-            mosquitoyY -= velocidadeMonstroMosquito
-            mosquitoxX -= 0
-
-        }
-
-
-        /**B**/
-
-        if (mosquito == 22) {
-            mosquitoyY += velocidadeMonstroMosquito
-            mosquitoxX -= 0
-
-
+            if (tiroInimigoY < ((mosquitoY*3)*-1)){
+                tiroParou = true
+            }
         }
 
         /**B**/
 
-        if (mosquito == 23) {
-            mosquitoyY += velocidadeMonstroMosquito
-            mosquitoxX -= 0
+        if (tiroInimigo == 2) {
+            tiroInimigoyY += velocidadeMonstroMosquito*2
+            tiroInimigoxX -= 0
 
-
-        }
-
-
-        /**E**/
-        if (mosquito == 32) {
-            mosquitoyY += 0
-            mosquitoxX -= velocidadeMonstroMosquito
-
+            if (tiroInimigoY > (mosquitoY*3)){
+                tiroParou = true
+            }
         }
 
         /**E**/
-        if (mosquito == 33) {
-            mosquitoyY += 0
-            mosquitoxX -= velocidadeMonstroMosquito
+        if (tiroInimigo == 3) {
+            tiroInimigoyY += 0
+            tiroInimigoxX -= velocidadeMonstroMosquito*2
 
+            if (tiroInimigoX < ((mosquitoX*3)*-1)){
+                tiroParou = true
+            }
         }
 
         /**D**/
-        if (mosquito == 42) {
-            mosquitoyY += 0
-            mosquitoxX += velocidadeMonstroMosquito
+        if (tiroInimigo == 4) {
+            tiroInimigoyY += 0
+            tiroInimigoxX += velocidadeMonstroMosquito*2
 
+            if (tiroInimigoX > (mosquitoX*3)){
+                tiroParou = true
+            }
         }
 
-        /**D**/
-        if (mosquito == 43) {
-            mosquitoyY += 0
-            mosquitoxX += velocidadeMonstroMosquito
-
-        }
-
-        mosquitoY = heightCidade(binding.mosquito, 4f) + mosquitoyY
+        mosquitoY = heightCidade(binding.mosquito, 2f) + mosquitoyY
         mosquitoX = widthCidade(binding.mosquito, 11.25f) + mosquitoxX
 
         binding.mosquito.x = mosquitoX
         binding.mosquito.y = mosquitoY
 
-        if (mosquitoY > heightCidade(binding.mosquito, 0.25f) && mosquito == 2){
-            binding.mosquito.rotationY = 180F
-            mosquito = 4
-        } else if (mosquitoX > widthCidade(binding.mosquito, 16.25f) && mosquito == 4){
-            mosquito = 1
-        } else if (mosquitoY < heightCidade(binding.mosquito, 3.5f) && mosquito == 1){
-            binding.mosquito.rotationY = 0F
-            mosquito = 3
-        } else if (mosquitoX < widthCidade(binding.mosquito, 11.25f) && mosquito == 3){
-            mosquito = 12
-        } else if (mosquitoY < heightCidade(binding.mosquito, 6.5f) && mosquito == 12){
-            binding.mosquito.rotationY = 0F
-            mosquito = 32
-        } else if (mosquitoX < widthCidade(binding.mosquito, 6.5f) && mosquito == 32){
-            mosquito = 22
-        } else if (mosquitoY > heightCidade(binding.mosquito, 3.5f) && mosquito == 22){
-            binding.mosquito.rotationY = 0F
-            mosquito = 33
-        } else if (mosquitoX < widthCidade(binding.mosquito, 0.5f) && mosquito == 33){
-            mosquito = 23
-        } else if (mosquitoY > heightCidade(binding.mosquito, 0.25f) && mosquito == 23){
-            binding.mosquito.rotationY = 180F
-            mosquito = 42
-        } else if (mosquitoX > widthCidade(binding.mosquito, 6.5f) && mosquito == 42){
-            mosquito = 13
-        } else if (mosquitoY < heightCidade(binding.mosquito, 6.5f) && mosquito == 13){
-            binding.mosquito.rotationY = 180F
-            mosquito = 43
-        } else if (mosquitoX > widthCidade(binding.mosquito, 11.25f) && mosquito == 43){
-            mosquito = 2
+
+
+        if (tiroParou) {
+            tiroInimigo = mosquito
+
+            tiroInimigoxX = 0F
+            tiroInimigoyY = 0F
+
+            tiroInimigoX = mosquitoX + tiroInimigoxX
+            tiroInimigoY = mosquitoY + tiroInimigoyY
+
+            binding.tiroInimigo.x = tiroInimigoX
+            binding.tiroInimigo.y = tiroInimigoY
+            binding.tiroInimigo.visibility = View.GONE
+            tiroParou = false
+        } else {
+            binding.tiroInimigo.visibility = View.VISIBLE
+            tiroInimigoX = mosquitoX + tiroInimigoxX
+            tiroInimigoY = mosquitoY + tiroInimigoyY
+
+            binding.tiroInimigo.x = tiroInimigoX
+            binding.tiroInimigo.y = tiroInimigoY
+        }
+
+
+        if (pontoA(mosquito, caminhoMosquitoA, mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoA", "true")
+            val list = listOf(1, 4)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoB = true
+                    Log.d("pontoA", "caminhoMosquitoB")
+                }
+                4 -> {
+                    mosquito = 4
+                    caminhoMosquitoG = true
+                    Log.d("pontoA", "caminhoMosquitoG")
+                }
+            }
+            caminhoMosquitoA = false
+
+        } else if (pontoB(mosquito, caminhoMosquitoB, mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoB", "true")
+            val list = listOf(1, 2, 4)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoC = true
+                    Log.d("pontoB", "caminhoMosquitoC")
+                }
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoA = true
+                    Log.d("pontoB", "caminhoMosquitoA")
+                }
+                4 -> {
+                    mosquito = 4
+                    caminhoMosquitoF = true
+                    Log.d("pontoB", "caminhoMosquitoF")
+                }
+            }
+            caminhoMosquitoB = false
+
+        } else if (pontoC(mosquito, caminhoMosquitoC, mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoC", "true")
+            val list = listOf(2, 4)
+            when (list.random()){
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoB = true
+                    Log.d("pontoC", "caminhoMosquitoB")
+                }
+                4 -> {
+                    mosquito = 4
+                    caminhoMosquitoD = true
+                    Log.d("pontoC", "caminhoMosquitoD")
+                }
+            }
+            caminhoMosquitoC = false
+
+        } else if (pontoD(mosquito, caminhoMosquitoD,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoD", "true")
+            val list = listOf(2, 3)
+            when (list.random()){
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoE = true
+                    Log.d("pontoD", "caminhoMosquitoE")
+                }
+                3 -> {
+                    mosquito = 3
+                    caminhoMosquitoC = true
+                    Log.d("pontoD", "caminhoMosquitoC")
+                }
+            }
+            caminhoMosquitoD = false
+
+        }else if (pontoE(mosquito, caminhoMosquitoE,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoE", "true")
+            val list = listOf(1, 2, 4)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoD = true
+                    Log.d("pontoE", "caminhoMosquitoD")
+                }
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoF = true
+                    Log.d("pontoE", "caminhoMosquitoF")
+                }
+                4 -> {
+                    mosquito = 4
+                    caminhoMosquitoH = true
+                    Log.d("pontoE", "caminhoMosquitoH")
+                }
+            }
+            caminhoMosquitoE = false
+
+        }else if (pontoF(mosquito, caminhoMosquitoF,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoF", "true")
+            val list = listOf(1, 2, 3)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoE = true
+                    Log.d("pontoF", "caminhoMosquitoE")
+                }
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoG = true
+                    Log.d("pontoF", "caminhoMosquitoG")
+                }
+                3 -> {
+                    mosquito = 3
+                    caminhoMosquitoB = true
+                    Log.d("pontoF", "caminhoMosquitoB")
+                }
+            }
+            caminhoMosquitoF = false
+
+        }else if (pontoG(mosquito, caminhoMosquitoG,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoG", "true")
+            val list = listOf(1, 3)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoF = true
+                    Log.d("pontoG", "caminhoMosquitoF")
+                }
+                3 -> {
+                    mosquito = 3
+                    caminhoMosquitoA = true
+                    Log.d("pontoG", "caminhoMosquitoA")
+                }
+            }
+            caminhoMosquitoG = false
+
+        }else if (pontoH(mosquito, caminhoMosquitoH,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoH", "true")
+            val list = listOf(1, 2, 3)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoI = true
+                    Log.d("pontoH", "caminhoMosquitoI")
+                }
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoN = true
+                    Log.d("pontoH", "caminhoMosquitoN")
+                }
+                3 -> {
+                    mosquito = 3
+                    caminhoMosquitoE = true
+                    Log.d("pontoH", "caminhoMosquitoE")
+                }
+            }
+            caminhoMosquitoH = false
+
+        }else if (pontoI(mosquito, caminhoMosquitoI,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoI", "true")
+            val list = listOf(2, 4)
+            when (list.random()){
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoH = true
+                    Log.d("pontoI", "caminhoMosquitoH")
+                }
+                4 -> {
+                    mosquito = 4
+                    caminhoMosquitoJ = true
+                    Log.d("pontoI", "caminhoMosquitoJ")
+                }
+            }
+            caminhoMosquitoI = false
+
+        }else if (pontoJ(mosquito, caminhoMosquitoJ,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoJ", "true")
+            val list = listOf(2, 3)
+            when (list.random()){
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoK = true
+                    Log.d("pontoJ", "caminhoMosquitoK")
+                }
+                3 -> {
+                    mosquito = 3
+                    caminhoMosquitoI = true
+                    Log.d("pontoJ", "caminhoMosquitoI")
+                }
+            }
+            caminhoMosquitoJ = false
+
+        }else if (pontoK(mosquito, caminhoMosquitoK,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoK", "true")
+            val list = listOf(1, 2, 3)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoJ = true
+                    Log.d("pontoK", "caminhoMosquitoJ")
+                }
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoL = true
+                    Log.d("pontoK", "caminhoMosquitoL")
+                }
+                3 -> {
+                    mosquito = 3
+                    caminhoMosquitoN = true
+                    Log.d("pontoK", "caminhoMosquitoN")
+                }
+            }
+            caminhoMosquitoK = false
+
+        }else if (pontoL(mosquito, caminhoMosquitoL,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoL", "true")
+            val list = listOf(1, 3)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoK = true
+                    Log.d("pontoL", "caminhoMosquitoK")
+                }
+                3 -> {
+                    mosquito = 3
+                    caminhoMosquitoM = true
+                    Log.d("pontoL", "caminhoMosquitoM")
+                }
+            }
+            caminhoMosquitoL = false
+
+        }else if (pontoM(mosquito, caminhoMosquitoM,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoM", "true")
+            val list = listOf(1, 4)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoN = true
+                    Log.d("pontoM", "caminhoMosquitoN")
+                }
+                4 -> {
+                    mosquito = 4
+                    caminhoMosquitoL = true
+                    Log.d("pontoM", "caminhoMosquitoL")
+                }
+            }
+            caminhoMosquitoM = false
+
+        }else if (pontoN(mosquito, caminhoMosquitoN,mosquitoX, mosquitoY, binding.mosquito)){
+            Log.d("pontoN", "true")
+            val list = listOf(1, 2, 4)
+            when (list.random()){
+                1 -> {
+                    mosquito = 1
+                    caminhoMosquitoH = true
+                    Log.d("pontoN", "caminhoMosquitoH")
+                }
+                2 -> {
+                    mosquito = 2
+                    caminhoMosquitoM = true
+                    Log.d("pontoN", "caminhoMosquitoM")
+                }
+                4 -> {
+                    mosquito = 4
+                    caminhoMosquitoK = true
+                    Log.d("pontoN", "caminhoMosquitoK")
+                }
+            }
+            caminhoMosquitoN = false
+
+        }
+
+        if (colisorJogadorParar(tiroInimigoX, tiroInimigoY, binding.tiroInimigo) ) {
+            binding.imageViewArpg.setImageResource(R.drawable.ic_tiro_contra)
+            pontos += 15 * perdaVida
+            vidasJogador(pontos)
         }
 
         if (colisorJogadorParar(mosquitoX, mosquitoY, binding.mosquito) ) {
-            binding.imageViewArpg.setImageResource(R.drawable.ic_mula)
+            binding.imageViewArpg.setImageResource(R.drawable.ic_curupira)
             pontos += 10 * perdaVida
             vidasJogador(pontos)
         }
@@ -5860,6 +6344,7 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
     }
 
     fun popupMessageInicio (text: String){
+        proibidoPerder = true
         val dialog: Dialog = Dialog(this)
 
         //velocidade_cenarioY = binding.casas1.width * 2f
@@ -5873,6 +6358,7 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         popupLutaContraOCoronavirusBinding.ok.setOnClickListener {
             on = true
             proibidoPerder = false
+            pontosValem = true
             dialog.dismiss()
         }
 
@@ -5946,6 +6432,8 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
 
 
     fun popupMessage (text: String){
+        on = false
+        proibidoPerder = true
         val dialog: Dialog = Dialog(this)
 
         val popupLutaContraOCoronavirusBinding: PopupLutaContraOCoronavirusBinding = PopupLutaContraOCoronavirusBinding.inflate(layoutInflater)
@@ -6007,6 +6495,294 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         }
     }
 
+    fun pontoA(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (((y > heightCidade(z, 0.25f) && v && (w != 4) && (w != 3)) ||
+                    (x < widthCidade(z, 0.5f) && v && (w != 1) && (w != 2))) ) {
+            true
+        } else{
+            false
+        }
+    }
+
+    fun pontoB(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (w >= 2) {
+            if (((y > heightCidade(z, 3.5f)&& v && (w != 4) && (w != 3)) ||
+                        (x < widthCidade(z, 0.5f)&& v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else if (w <= 1) {
+            if (((y < heightCidade(z, 3.5f) && v && (w != 4) && (w != 3)) ||
+                        (x < widthCidade(z, 0.5f) && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        } else{
+            false
+        }
+    }
+
+    fun pontoC(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (((y < heightCidade(z, 9.65f) && v && (w != 4) && (w != 3)) ||
+                    (x < widthCidade(z, 0.5f) && v && (w != 1) && (w != 2))) ) {
+            true
+        } else{
+            false
+        }
+    }
+
+    fun pontoD(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (((y < heightCidade(z, 9.65f) && v && (w != 4) && (w != 3)) ||
+                    (x > widthCidade(z, 7f) && v && (w != 1) && (w != 2) ))) {
+            true
+        } else{
+            false
+        }
+    }
+
+    fun pontoE(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (w >= 2) {
+            if (((y > heightCidade(z, 6.5f) && v && (w != 4) && (w != 3)) ||
+                        (x > widthCidade(z, 7f)  && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else if (w <= 1){
+            if (((y < heightCidade(z, 6.5f) && v && (w != 4) && (w != 3)) ||
+                        (x > widthCidade(z, 7f)  && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        } else{
+            false
+        }
+    }
+
+    fun pontoF(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (w >= 2) {
+            if (((y > heightCidade(z, 3.5f) && v && (w != 4) && (w != 3)) ||
+                        (x > widthCidade(z, 7f)  && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else if (w <= 1){
+            if (((y < heightCidade(z, 3.5f) && v && (w != 4) && (w != 3)) ||
+                        (x > widthCidade(z, 7f)  && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else{
+            false
+        }
+    }
+
+    fun pontoG(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (((y > heightCidade(z, 0.25f) && v && (w != 4) && (w != 3)) ||
+                    (x > widthCidade(z, 7f) && v && (w != 1) && (w != 2)))) {
+            true
+        } else{
+            false
+        }
+    }
+
+    fun pontoH(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (w >= 2) {
+            if (((y > heightCidade(z, 6.5f) && v && (w != 4) && (w != 3)) ||
+                        (x > widthCidade(z, 11.5f) && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else if (w <= 1){
+            if (((y < heightCidade(z, 6.5f) && v && (w != 4) && (w != 3)) ||
+                        (x > widthCidade(z, 11.5f) && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else{
+            false
+        }
+    }
+
+    fun pontoI(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (((y < heightCidade(z, 9.65f) && v && (w != 4) && (w != 3)) ||
+                    (x > widthCidade(z, 11.5f) && v && (w != 1) && (w != 2)))) {
+            true
+        } else{
+            false
+        }
+    }
+
+    fun pontoJ(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (((y < heightCidade(z, 9.65f) && v && (w != 4) && (w != 3)) ||
+                    (x > widthCidade(z, 16.5f) && v && (w != 1) && (w != 2)))) {
+            true
+        } else{
+            false
+        }
+    }
+
+    fun pontoK(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (w >= 2) {
+            if (((y > heightCidade(z, 3.5f) && v && (w != 4) && (w != 3)) ||
+                        (x > widthCidade(z, 16.5f)  && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else if (w <= 1){
+            if (((y < heightCidade(z, 3.5f) && v && (w != 4) && (w != 3)) ||
+                        (x > widthCidade(z, 16.5f)  && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else{
+            false
+        }
+    }
+
+    fun pontoL(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (((y > heightCidade(z, 0.25f) && v && (w != 4) && (w != 3)) ||
+                    (x > widthCidade(z, 16.5f) && v && (w != 1) && (w != 2)))) {
+            true
+        } else{
+            false
+        }
+    }
+
+    fun pontoM(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (((y > heightCidade(z, 0.25f) && v && (w != 4) && (w != 3)) ||
+                    (x < widthCidade(z, 11.5f) && v && (w != 1) && (w != 2)))) {
+            true
+        } else{
+            false
+        }
+    }
+
+    fun pontoN(
+        w: Int,
+        v: Boolean,
+        x: Float,
+        y: Float,
+        z: ImageView
+    ): Boolean {
+        return if (w >= 2) {
+            if (((y > heightCidade(z, 3.5f) && v && (w != 4) && (w != 3)) ||
+                        (x < widthCidade(z, 11.5f) && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else if (w <= 1){
+            if (((y < heightCidade(z, 3.5f) && v && (w != 4) && (w != 3)) ||
+                        (x < widthCidade(z, 11.5f) && v && (w != 1) && (w != 2)))
+            ) {
+                true
+            } else{
+                false
+            }
+        }else{
+            false
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
@@ -6041,18 +6817,22 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
     }
 
     override fun onDestroy() {
-        super.onDestroy()
+        binding.adView.destroy()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             finishAndRemoveTask()
         } else {
             finish()
         }
+        super.onDestroy()
     }
 
     override fun onResume() {
         super.onResume()
+        binding.adView.resume()
         binding.imagePause.setOnClickListener {
             pause = false
+            on = true
+            proibidoPerder = false
 
             velocidade_inimigoY = 2
             velocidade_cenarioY = 0f
@@ -6062,7 +6842,6 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
     }
 
     override fun onPause() {
-        super.onPause()
         if (!fimDeJogo) {
             pause = true
             binding.imagePause.visibility = View.VISIBLE
@@ -6070,8 +6849,14 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
             velocidade_inimigoY = 0
             velocidade_cenarioY = 0f
             velocidade_cenarioX = 0f
+            on = false
+            proibidoPerder = true
+            binding.adView.pause()
+
             binding.imagePause.setOnLongClickListener {
                 pause = false
+                on = true
+                proibidoPerder = false
 
                 velocidade_inimigoY = 2
                 velocidade_cenarioY = 0f
@@ -6080,6 +6865,7 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
                 false
             }
         }
+        super.onPause()
     }
 
     override fun onBackPressed() {

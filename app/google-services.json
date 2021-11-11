@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "180951317864",
+    "project_id": "drywar",
+    "storage_bucket": "drywar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180951317864:android:8654946c453e61f65feadd",
+        "android_client_info": {
+          "package_name": "vm.caatsoft.caatingueiros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180951317864-2ir5j7av2qu1ml59tdooiqk788lsusle.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vm.caatsoft.caatingueiros",
+            "certificate_hash": "16e377413345e450b1718daa045e3418299aff00"
+          }
+        },
+        {
+          "client_id": "180951317864-s4c1hnc4v7v1rnarrg9ee675hm2ugj0b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPx4rk82oYgaXIYmUNTHEDxiu3Q_zrP9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180951317864-s4c1hnc4v7v1rnarrg9ee675hm2ugj0b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

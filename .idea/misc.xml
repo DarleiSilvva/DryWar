@@ -6,11 +6,13 @@
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable-xhdpi/a_a_transparente.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable-xhdpi/ic_mao.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable-xhdpi/seekbar_style.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable-xxxhdpi/ic_tiro_contra.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/a_a_sombra_geral.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/a_a_transparente.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/a_bronze.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/balao_preto_transparente_game.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/cenario_caatinga.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_arpg_cima.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_background.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_balao.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_balao_quadrado.xml" value="0.10555555555555556" />
@@ -18,6 +20,7 @@
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.2128205128205128" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_baseline_play_circle_filled_24_on.xml" value="0.2128205128205128" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_caatsoft.xml" value="0.1" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_cangaceiro.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_coracao.xml" value="0.10555555555555556" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/drawable/ic_corda.xml" value="0.21614583333333334" />
@@ -68,6 +71,7 @@
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/layout/activity_game_berrador.xml" value="0.2" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/layout/activity_game_boitata.xml" value="0.12" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/layout/activity_game_curupira.xml" value="0.12" />
+        <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/layout/activity_game_curupira2.xml" value="0.12092391304347826" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/layout/activity_game_fase1_cidade.xml" value="0.18" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/layout/activity_game_mula.xml" value="0.14719202898550723" />
         <entry key="..\:/Users/darle/AndroidStudioProjects/Caatingueiros/app/src/main/res/layout/activity_game_queixada.xml" value="0.14719202898550723" />

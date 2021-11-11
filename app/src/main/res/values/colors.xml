@@ -3,7 +3,9 @@
     <color name="colorPrimary">#d7b29c</color>
     <color name="colorPrimaryDark">#a07254</color>
     <color name="colorAccent">#d7b29c</color>
-    <color name="green_ligh">#cbf6de</color>
+    <color name="fundo_caatinga">#8e7e67</color>
+    <color name="green_ligh">#cbf6de</color>f4e8b5
+    <color name="fundo_anuncio">#f4e8b5</color>
     <color name="fundao">#616161</color>
     <color name="hint">#683c16</color>
     <color name="madeira">#683c16</color>
@@ -42,7 +44,7 @@
     <color name="corMapa">#eccfa3</color>
     <color name="corMapaFundo">#4DECCFA3</color>
     <color name="colorT">#00FFFFFF</color>
-    <color name="chao">#715840</color>
+    <color name="chao">#8e7e67</color>
     <color name="vermelho_escuro">#53230e</color>
 
     <color name="ouro">#FFC107</color>

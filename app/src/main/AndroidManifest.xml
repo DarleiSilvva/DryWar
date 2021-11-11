@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="vm.caatsoft.caatingueiros">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo"
@@ -9,6 +12,10 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Caatingueiros">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5910259664505948~3307762065"/>
+
         <activity
             android:name=".ui.game_cidade.FinalGameActivity"
             android:screenOrientation="portrait"
@@ -43,9 +50,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.game_cidade.GameBAActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Caatingueiros"
+            android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

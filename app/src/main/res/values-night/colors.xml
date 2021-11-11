@@ -3,6 +3,8 @@
     <color name="colorPrimary">#d7b29c</color>
     <color name="colorPrimaryDark">#a07254</color>
     <color name="colorAccent">#d7b29c</color>
+    <color name="fundo_caatinga">#8e7e67</color>
+    <color name="fundo_anuncio">#f4e8b5</color>
     <color name="green_ligh">#cbf6de</color>
     <color name="fundao">#616161</color>
     <color name="hint">#75644A</color>
