@@ -380,11 +380,11 @@
 
             <ImageView
                 android:id="@+id/tiroInimigo"
-                android:layout_width="@dimen/n18"
-                android:layout_height="@dimen/n54"
+                android:layout_width="@dimen/n85"
+                android:layout_height="@dimen/n100"
                 android:rotation="0"
                 android:visibility="gone"
-                app:srcCompat="@drawable/ic_tiro_contra" />
+                app:srcCompat="@drawable/poder_redemoinho" />
 
             <ImageView
                 android:id="@+id/imageView4"

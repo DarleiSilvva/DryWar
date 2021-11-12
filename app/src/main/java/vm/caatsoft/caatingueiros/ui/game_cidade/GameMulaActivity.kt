@@ -5628,8 +5628,6 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         binding.monstro.x = monstroX
         binding.monstro.y = monstroY
 
-        proibidoPerder = true
-
         if (pontoA(monstro, caminhoA, monstroX, monstroY, binding.monstro)){
             Log.d("pontoA", "true")
             val list = listOf(1, 4)
@@ -5949,6 +5947,7 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         }
 
         if (tiroInimigo == 1) {
+            binding.tiroInimigo.rotation = 180F
             tiroInimigoyY -= velocidadeMonstroMosquito*2
             tiroInimigoxX -= 0
 
@@ -5957,9 +5956,8 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
             }
         }
 
-        /**B**/
-
         if (tiroInimigo == 2) {
+            binding.tiroInimigo.rotation = 0F
             tiroInimigoyY += velocidadeMonstroMosquito*2
             tiroInimigoxX -= 0
 
@@ -5968,8 +5966,8 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
             }
         }
 
-        /**E**/
         if (tiroInimigo == 3) {
+            binding.tiroInimigo.rotation = 90F
             tiroInimigoyY += 0
             tiroInimigoxX -= velocidadeMonstroMosquito*2
 
@@ -5978,8 +5976,8 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
             }
         }
 
-        /**D**/
         if (tiroInimigo == 4) {
+            binding.tiroInimigo.rotation = 270F
             tiroInimigoyY += 0
             tiroInimigoxX += velocidadeMonstroMosquito*2
 
@@ -5987,6 +5985,7 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
                 tiroParou = true
             }
         }
+
 
         mosquitoY = heightCidade(binding.mosquito, 2f) + mosquitoyY
         mosquitoX = widthCidade(binding.mosquito, 11.25f) + mosquitoxX
@@ -6290,13 +6289,13 @@ class GameMulaActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         }
 
         if (colisorJogadorParar(tiroInimigoX, tiroInimigoY, binding.tiroInimigo) ) {
-            binding.imageViewArpg.setImageResource(R.drawable.ic_tiro_contra)
+            binding.imageViewArpg.setImageResource(R.drawable.poder_fogo)
             pontos += 15 * perdaVida
             vidasJogador(pontos)
         }
 
         if (colisorJogadorParar(mosquitoX, mosquitoY, binding.mosquito) ) {
-            binding.imageViewArpg.setImageResource(R.drawable.ic_curupira)
+            binding.imageViewArpg.setImageResource(R.drawable.ic_mula)
             pontos += 10 * perdaVida
             vidasJogador(pontos)
         }

@@ -6315,7 +6315,7 @@ class GameBAActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         }
 
         if (colisorJogadorParar(tiroInimigoX, tiroInimigoY, binding.tiroInimigo) ) {
-            binding.imageViewArpg.setImageResource(R.drawable.ic_tiro_contra)
+            binding.imageViewArpg.setImageResource(R.drawable.poder_fogo)
             pontos += 15 * perdaVida
             vidasJogador(pontos)
         }

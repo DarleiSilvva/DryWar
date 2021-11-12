@@ -5629,8 +5629,6 @@ class GameSaciActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         binding.monstro.x = monstroX
         binding.monstro.y = monstroY
 
-        proibidoPerder = true
-
         if (pontoA(monstro, caminhoA, monstroX, monstroY, binding.monstro)){
             Log.d("pontoA", "true")
             val list = listOf(1, 4)
@@ -6291,13 +6289,13 @@ class GameSaciActivity : AppCompatActivity(), GestureDetector.OnGestureListener 
         }
 
         if (colisorJogadorParar(tiroInimigoX, tiroInimigoY, binding.tiroInimigo) ) {
-            binding.imageViewArpg.setImageResource(R.drawable.ic_tiro_contra)
+            binding.imageViewArpg.setImageResource(R.drawable.poder_redemoinho)
             pontos += 15 * perdaVida
             vidasJogador(pontos)
         }
 
         if (colisorJogadorParar(mosquitoX, mosquitoY, binding.mosquito) ) {
-            binding.imageViewArpg.setImageResource(R.drawable.ic_curupira)
+            binding.imageViewArpg.setImageResource(R.drawable.ic_saci)
             pontos += 10 * perdaVida
             vidasJogador(pontos)
         }

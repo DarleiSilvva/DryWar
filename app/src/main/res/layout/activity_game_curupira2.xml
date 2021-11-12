@@ -384,7 +384,7 @@
                 android:layout_height="@dimen/n54"
                 android:rotation="0"
                 android:visibility="gone"
-                app:srcCompat="@drawable/ic_tiro_contra" />
+                app:srcCompat="@drawable/poder_fogo" />
 
 
             <ImageView
